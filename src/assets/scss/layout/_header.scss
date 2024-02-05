@@ -1,0 +1,33 @@
+.mainHeader {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    border-bottom: 1px solid #F3F3F3;
+    padding: 10px 0;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+
+        img {
+            width: auto;
+            aspect-ratio: 124/50;
+        }
+    }
+
+    .navbar {
+        flex: 1;
+    }
+
+    .userArea {}
+}
