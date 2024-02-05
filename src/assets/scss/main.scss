@@ -1,7 +1,12 @@
 @import 'layout/typo';
 
 // @import 'layout/variables';
-// @import 'bootstrap/bootstrap';
+// Default variable overrides
+$primary: #43B749;
+$enable-shadows: true;
+$prefix: "hk-";
+
+@import 'bootstrap/bootstrap';
 // @import 'plugins/fontawesome/fontawesome';
 // @import 'plugins/lineawesome/line-awesome';
 // @import 'plugins/fontawesome/brands';
@@ -17,7 +22,7 @@
 
 // @import 'layout/register';
 
-// @import 'layout/header';
+@import 'layout/header';
 // @import 'layout/footer';
 // @import 'layout/home';
 
