@@ -22,7 +22,21 @@
 
         <!-- Right actions -->
         <div class="userArea">
-            <a class="btn-login"><span>Login</span><ng-icon class="icon" name="remixUserLine"></ng-icon></a>
+            <a class="btn-login" (click)="openModal(login)"><span>Login</span><ng-icon class="icon"
+                    name="remixUserLine"></ng-icon></a>
         </div>
     </div>
 </div>
+
+<ng-template #login let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <p>One fine body&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

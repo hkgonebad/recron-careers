@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common'
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { remixUserLine } from '@ng-icons/remixicon';
+
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { RouterModule } from '@angular/router';
 
@@ -16,6 +18,7 @@ import { RouterModule } from '@angular/router';
 })
 
 export class HeaderComponent {
+  private modalService = inject(NgbModal);
 
   isNavOpen = false
   logoImg = 'assets/img/logo.svg'
@@ -33,5 +36,7 @@ export class HeaderComponent {
   }
  
   // Login Modol
-  
+  openModal(login: TemplateRef<any>) {
+		this.modalService.open(login, { size: 'lg' });
+	}
 }
