@@ -1,1 +1,18 @@
-<p>footer works!</p>
+<div class="mainFooter">
+    <div class="topFooter">
+
+    </div>
+
+    <div class="bottomFooter">
+        <div class="container">
+
+            <div class="socials">
+                @for (socialItem of socialItems; track socialItem.name) {
+                <a href={{socialItem.url}} ariaLabel={{socialItem.name}} target="_blank"><ng-icon
+                        name={{socialItem.icon}}></ng-icon></a>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
