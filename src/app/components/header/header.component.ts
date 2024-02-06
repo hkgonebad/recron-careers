@@ -1,5 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common'
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -11,14 +10,15 @@ import { RouterModule } from '@angular/router';
   selector: 'app-header',
   standalone: true,
   imports: [NgOptimizedImage, NgIconComponent, RouterModule],
-  viewProviders: [provideIcons({ remixUserLine }), BsModalService],
+  viewProviders: [provideIcons({ remixUserLine })],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 
 export class HeaderComponent {
-  logoImg = 'assets/img/logo.svg'
 
+  isNavOpen = false
+  logoImg = 'assets/img/logo.svg'
   menuItems = [
     {name: "About Us", path: '/about'},
     {name: "Products", path: '/careers'},
@@ -26,10 +26,12 @@ export class HeaderComponent {
     {name: "Careers", path: '/careers'}
   ]
 
-  modalRef?: BsModalRef;
-  constructor(private modalService: BsModalService) {}
- 
-  openModal(template: TemplateRef<void>) {
-    this.modalRef = this.modalService.show(template);
+
+  // Toggle Menu
+  toggleNav() {
+    this.isNavOpen = !this.isNavOpen
   }
+ 
+  // Login Modol
+  
 }

@@ -4,18 +4,25 @@
             <a routerLink="/"><img ngSrc={{logoImg}} height="50" width="124" priority alt="Recron Malaysia Logo"></a>
         </div>
 
-        <nav class="navbar">
+        <!-- Navbar -->
+        <nav class="navbar" [class.active]="isNavOpen">
+            <!-- Toggle Nav -->
+            <a href="javascript:void(0)" class="navToggler" (click)="toggleNav()"><ng-icon class="icon"
+                    name="remixUserLine"></ng-icon></a>
+            <!-- Menu -->
             <ul class="navbar-nav">
                 @for (item of menuItems; track item.name) {
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink={{item.path}}>{{item.name}}</a>
+                    <a class="nav-link" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+                        true}" aria-current="page" [routerLink]="item.path">{{item.name}}</a>
                 </li>
                 }
             </ul>
         </nav>
 
+        <!-- Right actions -->
         <div class="userArea">
-            <a (click)="openModal(template)">Login <ng-icon name="remixUserLine"></ng-icon></a>
+            <a class="btn-login"><span>Login</span><ng-icon class="icon" name="remixUserLine"></ng-icon></a>
         </div>
     </div>
 </div>
