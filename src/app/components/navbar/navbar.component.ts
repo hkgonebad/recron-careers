@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 export class NavbarComponent {
   menuItems = [
     {name: "About Us", path: '/about'},
-    {name: "Products", path: '/careers'},
+    {name: "Products", path: '/products'},
     {name: "Sustainability", path: '/sustainability'},
     {name: "Careers", path: '/'}
   ]
