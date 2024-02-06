@@ -1,6 +1,6 @@
 <ul class="navbar-nav">
     @for (item of menuItems; track item.name) {
-    <a class="nav-link" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+    <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
             true}" aria-current="page" [routerLink]="item.path">{{item.name}}</a>
     }
 </ul>

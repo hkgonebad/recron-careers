@@ -13,6 +13,6 @@ export class NavbarComponent {
     {name: "About Us", path: '/about'},
     {name: "Products", path: '/careers'},
     {name: "Sustainability", path: '/sustainability'},
-    {name: "Careers", path: '/careers'}
+    {name: "Careers", path: '/'}
   ]
 }
