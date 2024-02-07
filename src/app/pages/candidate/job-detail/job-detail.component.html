@@ -1,1 +1,16 @@
-<p>job-detail works!</p>
+<div *ngIf="jobDetails">
+    <h2>{{ jobDetails.jobTitle }}</h2>
+    <!-- Other job details display logic -->
+</div>
+
+<section class="block jobs">
+    <div class="container">
+        <div class="pageHeader" *ngIf="jobDetails">
+            <h2>
+                <a routerLink="/"><ng-icon class="icon" name="remixArrowLeftLine"></ng-icon></a>
+                {{ jobDetails.jobTitle }}
+            </h2>
+        </div>
+    </div>
+
+</section>
