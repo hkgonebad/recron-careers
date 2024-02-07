@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "postedDate": "10 Jan, 2024",
+      "jobFunction": "Supervisor III (Operation Services)",
+      "jobTitle": "Supervisor III",
+      "jobLocation": "Kuala Lumpur",
+      "required": [
+        { "experience": "10-15 yrs" },
+        { "education": "Bachelor’s degree or equivalent" },
+        { "skills": ["SAP", "CRM"] }
+      ],
+      "url": "/job/supervisor-iii",
+      "jobDescription": [
+        "Description line 1",
+        "Description line 2"
+      ]
+    },
+    {
+      "id": 2,
+      "postedDate": "02 Jan, 2024",
+      "jobFunction": "Administrator (Accounts Receivable)",
+      "jobTitle": "Administrator",
+      "jobLocation": "Kuala Lumpur",
+      "required": [
+        { "experience": "10-15 yrs" },
+        { "education": "Bachelor’s degree in Accounting" },
+        { "skills": ["Excel", "QuickBooks"] }
+      ],
+      "url": "/job/administrator",
+      "jobDescription": [
+        "Description line 1",
+        "Description line 2"
+      ]
+    }
+  ]
+  
