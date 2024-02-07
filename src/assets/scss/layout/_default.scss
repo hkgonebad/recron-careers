@@ -3,6 +3,7 @@ body {
     --hk-body-font-weight: 500;
     --hk-border-color-translucent: rgb(0 0 0 / 0%);
 
+
     height: 100%;
     min-height: 100dvh;
 }
@@ -12,4 +13,27 @@ a,
     transition: all ease-in-out 250ms;
 
     &:hover {}
+}
+
+ng-icon {
+    display: flex !important;
+    overflow: initial !important;
+    --ng-icon__size: initial !important;
+}
+
+.input-group {
+
+    &.input-group-mordern {
+
+        .form-control {
+            background: transparent;
+            border-right: none;
+        }
+
+        .input-group-text,
+        .btn {
+            background: transparent;
+            border-left: none;
+        }
+    }
 }

@@ -1,6 +1,42 @@
 <div class="mainFooter">
-    <div class="topFooter">
 
+    <div class="topFooter">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-9">
+                    <!-- Footer Links -->
+                    <div class="fLinks">
+                        @for (linkCategory of linkCategories; track $index) {
+                        <div class="flBox">
+                            <h4>{{linkCategory.title}}</h4>
+
+                            @for (link of linkCategory.links; track $index) {
+                            <a href={{link.url}}>{{link.name}}</a>
+                            }
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <!-- Newsletter -->
+                    <div class="fNewsletter">
+                        <h4>Newsletter</h4>
+                        <div class="form-group">
+                            <label for="newsletter">Subscribe to our newsletter</label>
+                            <div class="input-group input-group-mordern">
+                                <input type="text" class="form-control" id="newsletter">
+                                <button class="btn btn-light"><ng-icon name="remixSendPlaneFill"></ng-icon></button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <div class="bottomFooter">
@@ -12,6 +48,14 @@
                         name={{socialItem.icon}}></ng-icon></a>
                 }
             </div>
+
+            <div class="privacy">
+                @for (privacyItem of privacyItems; track privacyItem.name) {
+                <a href={{privacyItem.url}} target="_blank">{{privacyItem.name}}</a>
+                }
+            </div>
+
+            <p class="copyRight">© Copyright {{year}} - RecronMalaysia</p>
 
         </div>
     </div>
