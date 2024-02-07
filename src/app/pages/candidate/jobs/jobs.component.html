@@ -13,7 +13,7 @@
                         @for (jobListing of jobListings; track $index) {
                         <div class="col-md-4">
                             <!-- Job List Card -->
-                            <div class="jlCard card" [routerLink]="">
+                            <div class="jlCard card" [routerLink]="['/job', jobListing.id]">
                                 <div class="card-body">
                                     <div class="jlMeta">
                                         <span>{{jobListing.postedDate}}</span>
