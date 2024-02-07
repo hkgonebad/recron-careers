@@ -4,7 +4,21 @@ import { NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { remixArrowLeftLine } from '@ng-icons/remixicon';
+import { remixArrowLeftLine, remixStarFill } from '@ng-icons/remixicon';
+import { Title } from '@angular/platform-browser';
+
+
+interface IJobExperience {
+  experience: string;
+}
+
+interface IJobEducation {
+  education: string;
+}
+
+interface IJobSkills {
+  skills: string[];
+}
 
 interface IJobDetail {
   id: number;
@@ -12,11 +26,7 @@ interface IJobDetail {
   jobFunction: string;
   jobTitle: string;
   jobLocation: string;
-  required: {
-    experience: string;
-    education: string;
-    skills: string[];
-  };
+  required: (IJobExperience | IJobEducation | IJobSkills)[];
   url: string;
   jobDescription: string[];
 }
@@ -27,7 +37,7 @@ interface IJobDetail {
   imports: [NgFor, NgIf, NgIconComponent, RouterLink],
   templateUrl: './job-detail.component.html',
   styleUrl: './job-detail.component.scss',
-  providers: [provideIcons({remixArrowLeftLine})]
+  providers: [provideIcons({remixArrowLeftLine, remixStarFill})]
 })
 export class JobDetailComponent implements OnInit {
   jobId!: number;
@@ -35,7 +45,8 @@ export class JobDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private jobListingService: JobListingService
+    private jobListingService: JobListingService,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
@@ -43,9 +54,28 @@ export class JobDetailComponent implements OnInit {
       this.jobId = +params['id']; // Convert the parameter to a number
       this.jobListingService.getJobDetails(this.jobId).subscribe(jobDetails => {
         this.jobDetails = jobDetails;
+        this.updateDocumentTitle();
         console.log('Job Details:', this.jobDetails);
       });
     });
+  }
+
+  isJobExperience(item: IJobExperience | IJobEducation | IJobSkills): item is IJobExperience {
+      return 'experience' in item;
+  }
+
+  isJobEducation(item: IJobExperience | IJobEducation | IJobSkills): item is IJobEducation {
+      return 'education' in item;
+  }
+
+  isJobSkills(item: IJobExperience | IJobEducation | IJobSkills): item is IJobSkills {
+      return 'skills' in item;
+  }
+
+  private updateDocumentTitle(): void {
+    if (this.jobDetails && this.jobDetails.jobTitle) {
+      this.titleService.setTitle(`${this.jobDetails.jobTitle} | Recron Careers`);
+    }
   }
   
 }
