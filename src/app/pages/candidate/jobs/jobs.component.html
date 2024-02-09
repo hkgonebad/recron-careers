@@ -18,8 +18,9 @@
                                     <div class="jlMeta">
                                         <span class="posted">{{jobListing.postedDate}}</span>
                                         <button class="btn btn-star" (click)="addToFavorites(jobListing.id)"
-                                            [class.favorited]="favorites.includes(jobListing.id)"><ng-icon class="icon"
-                                                name="remixStarFill"></ng-icon></button>
+                                            [class.favorited]="favorites.includes(jobListing.id)">
+                                            <ng-icon class="icon" name="remixStarFill"></ng-icon>
+                                        </button>
                                     </div>
                                     <h4>{{jobListing.jobTitle}}</h4>
                                     <p>

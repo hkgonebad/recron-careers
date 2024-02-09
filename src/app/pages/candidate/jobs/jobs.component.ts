@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, TemplateRef, ViewChild, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { JobListingService } from '../../../services/job-listing/job-listing.service';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -7,6 +7,8 @@ import { remixStarFill, remixMapPin2Fill } from '@ng-icons/remixicon';
 import { RouterModule } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 import { ToastService } from '../../../components/toast/toast.service';
+import { FavoriteService } from '../../../services/favorite/favorite.service';
+
 
 interface IJobExperience {
   experience: string;
@@ -42,13 +44,17 @@ interface IJobListing {
 export class JobsComponent implements OnInit {
 
   jobListings: IJobListing[] = []
-  
   favorites: number[] = []; // Array to store favorite job ids
+
   @ViewChild('favoriteJobs')
   favoriteJobs!: TemplateRef<any>;
 
-  constructor(private jobListingService: JobListingService){}
-  toastService = inject(ToastService);
+  constructor(
+    private jobListingService: JobListingService,
+    private toastService: ToastService,
+    private favoriteService: FavoriteService,
+    private ref: ChangeDetectorRef
+  ){}
 
   ngOnInit(): void {
     this.jobListingService.getJobListings().subscribe((data) => {
@@ -72,42 +78,21 @@ export class JobsComponent implements OnInit {
   }
 
   addToFavorites(jobId: number): void {
-    // Toggle job id in favorites array
-    const index = this.favorites.indexOf(jobId);
-    let message = '';
-  
-    if (index === -1) {
-      this.favorites.push(jobId);
-      this.saveFavorites();
-      message = 'Added to Favorites';
-    } else {
-      this.favorites.splice(index, 1);
-      this.saveFavorites();
-      message = 'Removed from Favorites';
-    }
-  
+    const updatedFavorites = this.favoriteService.toggleFavorite(jobId);
+    const message = updatedFavorites.includes(jobId) ? 'Added to Favorites' : 'Removed from Favorites';
+    this.loadFavorites();
     this.showSuccess(this.favoriteJobs, message);
   }
-  
 
-  // Save favorites to localStorage
-  saveFavorites(): void {
-    localStorage.setItem('favorites', JSON.stringify(this.favorites));
+  loadFavorites(): void {
+    this.favorites = this.favoriteService.getFavorites();
   }
 
-  // Load favorites from localStorage
-  loadFavorites(): void {
-    const favoritesStr = localStorage.getItem('favorites');
-    if (favoritesStr) {
-      this.favorites = JSON.parse(favoritesStr);
-    }
+  showSuccess(template: TemplateRef<any>, message: string) {
+    this.toastService.show({ template, classname: 'bg-success text-light', delay: 10000, message });
   }
 
   // Ads Image
   adsImg = 'assets/img/ad.svg'
-
-  showSuccess(template: TemplateRef<any>, message: string) {
-		this.toastService.show({ template, classname: 'bg-success text-light', delay: 10000, message });
-	}
   
 }

@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { JobListingService } from '../../../services/job-listing/job-listing.service';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { remixArrowLeftLine, remixStarFill } from '@ng-icons/remixicon';
 import { Title } from '@angular/platform-browser';
+import { FavoriteService } from '../../../services/favorite/favorite.service';
+import { ToastService } from '../../../components/toast/toast.service';
 
 
 interface IJobExperience {
@@ -36,7 +38,7 @@ interface IJobDetail {
 @Component({
   selector: 'app-job-detail',
   standalone: true,
-  imports: [NgFor, NgIf, NgIconComponent, RouterLink],
+  imports: [NgFor, NgIf, NgClass, NgIconComponent, RouterLink],
   templateUrl: './job-detail.component.html',
   styleUrl: './job-detail.component.scss',
   providers: [provideIcons({remixArrowLeftLine, remixStarFill})]
@@ -44,11 +46,17 @@ interface IJobDetail {
 export class JobDetailComponent implements OnInit {
   jobId!: number;
   jobDetails: IJobDetail | undefined;
+  favorites: number[] = []; 
+
+  @ViewChild('favoriteJobs')
+  favoriteJobs!: TemplateRef<any>;
 
   constructor(
     private route: ActivatedRoute,
     private jobListingService: JobListingService,
-    private titleService: Title
+    private titleService: Title,
+    private toastService: ToastService,
+    private favoriteService: FavoriteService
   ) {}
 
   ngOnInit(): void {
@@ -56,6 +64,7 @@ export class JobDetailComponent implements OnInit {
       this.jobId = +params['id']; // Convert the parameter to a number
       this.jobListingService.getJobDetails(this.jobId).subscribe(jobDetails => {
         this.jobDetails = jobDetails;
+        this.loadFavorites();
         this.updateDocumentTitle();
         console.log('Job Details:', this.jobDetails);
       });
@@ -74,6 +83,23 @@ export class JobDetailComponent implements OnInit {
       return 'skills' in item;
   }
 
+  // Favorites
+  addToFavorites(jobId: number): void {
+    const updatedFavorites = this.favoriteService.toggleFavorite(jobId);
+    const message = updatedFavorites.includes(jobId) ? 'Added to Favorites' : 'Removed from Favorites';
+    this.loadFavorites();
+    this.showSuccess(this.favoriteJobs, message);
+  }
+
+  loadFavorites(): void {
+    this.favorites = this.favoriteService.getFavorites();
+  }
+
+  showSuccess(template: TemplateRef<any>, message: string) {
+    this.toastService.show({ template, classname: 'bg-success text-light', delay: 10000, message });
+  }
+
+  // Update Title
   private updateDocumentTitle(): void {
     if (this.jobDetails && this.jobDetails.jobTitle) {
       this.titleService.setTitle(`${this.jobDetails.jobTitle} | Recron Careers`);

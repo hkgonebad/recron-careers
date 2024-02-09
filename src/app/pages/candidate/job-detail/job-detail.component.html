@@ -13,7 +13,10 @@
                 <div class="jlMeta">
                     <span class="id">Job ID: J00{{jobDetails.id}}</span>
                     <span class="posted">Date Posted: {{jobDetails.postedDate}}</span>
-                    <button class="btn btn-star"><ng-icon class="icon" name="remixStarFill"></ng-icon></button>
+                    <button class="btn btn-star" (click)="addToFavorites(jobDetails.id)"
+                        [class.favorited]="favorites.includes(jobDetails.id)">
+                        <ng-icon class="icon" name="remixStarFill"></ng-icon>
+                    </button>
                     <button class="btn btn-dark">Apply Now</button>
                 </div>
 
@@ -81,3 +84,8 @@
         </div>
     </div>
 </section>
+
+<!--  -->
+<ng-template #favoriteJobs let-message="message">
+    {{ message }}
+</ng-template>
