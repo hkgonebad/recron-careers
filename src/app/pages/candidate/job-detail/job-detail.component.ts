@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JobListingService } from '../../../services/job-listing.service';
+import { JobListingService } from '../../../services/job-listing/job-listing.service';
 import { NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
@@ -22,10 +22,12 @@ interface IJobSkills {
 
 interface IJobDetail {
   id: number;
-  postedDate: string;
+  postedDate: Date;
   jobFunction: string;
   jobTitle: string;
   jobLocation: string;
+  jobPositions: number;
+  jobPost: string;
   required: (IJobExperience | IJobEducation | IJobSkills)[];
   url: string;
   jobDescription: string[];
