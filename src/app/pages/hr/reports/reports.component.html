@@ -1,1 +1,73 @@
-<p>reports works!</p>
+<section class="reports">
+    <div class="container">
+
+        <div class="pageHeader">
+            <h2>
+                <!-- <a routerLink="/"><ng-icon class="icon" name="remixArrowLeftLine"></ng-icon></a> -->
+                <!-- <b *ngIf="jobDetails">{{ jobDetails.jobTitle }}</b>
+                <b *ngElse>Go Back</b> -->
+                Talent Management
+            </h2>
+
+            <div class="actions">
+                <select class="form-select">
+                    <option value="">Q1-2023</option>
+                </select>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="reportList">
+            <div class="row">
+                @for (rm of reportsData; track $index) {
+                <div class="col-lg-4">
+                    <div class="reportStat">
+                        <ng-icon class="icon" name={{rm.icon}}></ng-icon>
+                        <p>{{rm.label}}</p>
+                        <span>{{rm.stat}}</span>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="pageHeader mt-4">
+            <h2>Position Filled</h2>
+        </div>
+
+        <!--  -->
+        <div class="reportList mb-3">
+            <b class="subCat">Function</b>
+
+            <div class="row">
+                @for (fn of functionData; track $index) {
+                <div class="col-lg-6 col-xl-3">
+                    <div class="reportStat">
+                        <ng-icon class="icon" name={{fn.icon}}></ng-icon>
+                        <p>{{ fn.function }}</p>
+                        <span>{{ fn.count }}</span>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="reportList">
+            <b class="subCat">Location</b>
+
+            <div class="row">
+                @for (loc of locationData; track $index) {
+                <div class="col-lg-4">
+                    <div class="reportStat">
+                        <ng-icon class="icon" name="remixMapPinFill"></ng-icon>
+                        <p>{{ loc.location }}</p>
+                        <span>{{ loc.count }}</span>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</section>

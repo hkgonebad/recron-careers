@@ -7,7 +7,7 @@
     justify-content: space-between;
 
     h2 {
-        font-size: 1.875rem;
+        font-size: 1.575rem;
         font-weight: 700;
         margin: 0;
         display: flex;
@@ -35,6 +35,14 @@
         b {
             font-weight: 700;
         }
+    }
+
+    .form-select {
+        border-radius: 20px;
+        border: none;
+        background-color: #F3F3F3;
+        font-size: .75rem;
+        font-weight: 700;
     }
 }
 
