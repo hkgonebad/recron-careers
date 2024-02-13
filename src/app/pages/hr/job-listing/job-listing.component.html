@@ -52,8 +52,9 @@
 </div>
 
 
-<div class="d-flex justify-content-between p-2">
-    <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshJobs()">
+<div class="d-flex align-items-center justify-content-between p-2">
+    <select class="form-select form-select-sm" style="width: auto" [(ngModel)]="pageSize"
+        (ngModelChange)="refreshJobs()">
         <option [ngValue]="2">2 items per page</option>
         <option [ngValue]="4">4 items per page</option>
         <option [ngValue]="6">6 items per page</option>
@@ -62,4 +63,5 @@
     <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
         (pageChange)="refreshJobs()">
     </ngb-pagination>
+
 </div>

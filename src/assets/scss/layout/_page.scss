@@ -79,6 +79,7 @@
 }
 
 .table {
+
     thead {
         border-radius: 10px;
         overflow: hidden;
@@ -115,4 +116,8 @@
             font-size: .75rem;
         }
     }
+}
+
+.pagination {
+    margin: 0;
 }
