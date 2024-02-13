@@ -1,0 +1,47 @@
+<section class="block jobs">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+
+                <div class="pageHeader">
+                    <h2>Total Jobs <span>{{jobListings.length}}</span></h2>
+                </div>
+
+                <div class="jobsList">
+                    <div class="row">
+
+                        @for (jobListing of jobListings; track $index) {
+                        <div class="col-md-4">
+                            <!-- Job List Card -->
+                            <div class="jlCard card">
+                                <div class="card-body">
+                                    <div class="jlMeta">
+                                        <span>{{jobListing.postedDate}}</span>
+                                        <button class="btn btn-star"><ng-icon class="icon"
+                                                name="remixStarFill"></ng-icon></button>
+                                    </div>
+                                    <h4>{{jobListing.jobTitle}}</h4>
+                                    <p>
+                                        <ng-icon class="icon" name="remixMapPin2Fill"></ng-icon>
+                                        {{jobListing.jobLocation}} | Exp:
+                                        <span *ngFor="let reqItem of jobListing.required; let last = last">
+                                            <ng-container *ngIf="isJobExperience(reqItem)">
+                                                {{ reqItem.experience }}
+                                            </ng-container>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-dark" [routerLink]="['/job', jobListing.id]">Join
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,47 @@
+<div class="mainHeader">
+    <div class="container">
+        <div class="logo">
+            <a routerLink="/"><img ngSrc={{logoImg}} height="50" width="124" priority alt="Recron Malaysia Logo"></a>
+        </div>
+
+        <!-- Navbar -->
+        <nav class="navbar" [class.active]="isNavOpen">
+            <!-- Toggle Nav -->
+            <a href="javascript:void(0)" class="navToggler" (click)="toggleNav(navMenu)"
+                aria-label="Hamburger Menu"><ng-icon class="icon" name="remixMenu3Line"></ng-icon></a>
+            <!-- Menu -->
+            <app-navbar />
+        </nav>
+
+        <!-- Right actions -->
+        <div class="userArea">
+            <a class="btn-login" (click)="openModal(login)" aria-label="Login"><span>Login</span><ng-icon class="icon"
+                    name="remixUserLine"></ng-icon></a>
+        </div>
+    </div>
+</div>
+
+<!-- Offcanvas Menu -->
+<ng-template #navMenu let-offcanvas>
+    <div class="offcanvas-header">
+        <h4 class="offcanvas-title"></h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+    </div>
+    <div class="offcanvas-body">
+        <app-navbar />
+    </div>
+</ng-template>
+
+<!-- Login/Signup -->
+<ng-template #login let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <p>One fine body&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

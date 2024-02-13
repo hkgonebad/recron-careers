@@ -1,0 +1,33 @@
+<section class="block jobs">
+    <div class="container">
+        <div class="pageHeader">
+            <h2>
+                <a routerLink="/"><ng-icon class="icon" name="remixArrowLeftLine"></ng-icon></a>
+                <b *ngIf="jobDetails">{{ jobDetails.jobTitle }}</b>
+                <b *ngElse>Go Back</b>
+            </h2>
+        </div>
+
+        <div class="jlCard jlCardDetail card" *ngIf="jobDetails">
+            <div class="card-body">
+                <div class="jlMeta">
+                    <span class="id">Job ID: J00{{jobDetails.id}}</span>
+                    <span class="posted">{{jobDetails.postedDate}}</span>
+                    <button class="btn btn-star"><ng-icon class="icon" name="remixStarFill"></ng-icon></button>
+                </div>
+                <h4>{{jobDetails.jobTitle}}</h4>
+                <p>
+                    {{jobDetails.jobLocation}} | Exp:
+                    <span *ngFor="let reqItem of jobDetails.required; let last = last">
+                        <ng-container *ngIf="isJobExperience(reqItem)">
+                            {{ reqItem.experience }}
+                        </ng-container>
+                    </span>
+                </p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-dark">Apply Now</button>
+            </div>
+        </div>
+    </div>
+</section>

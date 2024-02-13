@@ -1,0 +1,157 @@
+.mainFooter {
+    background: $black;
+    color: #B4B4B4;
+
+    .topFooter {
+        padding: 2rem 0;
+
+        h4 {
+            font-weight: 700;
+            font-size: .80rem;
+            margin-bottom: 1.375rem;
+
+            @include media-breakpoint-down(lg) {
+                margin-bottom: .75rem;
+            }
+        }
+
+        .fLinks {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: flex-start;
+
+            @include media-breakpoint-down(lg) {
+                margin-bottom: 1.2rem;
+                justify-content: flex-start;
+            }
+
+            .flBox {
+                display: flex;
+                flex-flow: column;
+                gap: 8px;
+                min-width: 120px;
+
+                @include media-breakpoint-down(lg) {
+                    margin-bottom: .75rem;
+                }
+
+                a {
+                    font-size: .80rem;
+                    font-weight: 300;
+                    color: inherit;
+
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+
+        .fNewsletter {
+
+            label {
+                font-size: 1.1rem;
+                font-weight: 300;
+                margin-bottom: 5px;
+            }
+
+            .form-control {
+                background: transparent;
+                color: #B4B4B4;
+                border-color: $gray-800;
+            }
+
+            .btn {
+                color: $gray-400;
+                border-color: $gray-800;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    .bottomFooter {
+        font-size: 12px;
+
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-top: 1px dashed $gray-800;
+
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+
+            @include media-breakpoint-down(md) {
+                justify-content: center;
+                flex-flow: column;
+            }
+        }
+
+        .socials {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            a {
+                font-size: 1.25rem;
+                color: inherit;
+                display: inline-block;
+
+                &:hover {
+                    color: $primary;
+                }
+
+                svg {
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+        }
+
+        .privacy {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            @include media-breakpoint-up(md) {
+                margin-left: 2rem;
+            }
+
+            a {
+                padding: 0 8px;
+                color: inherit;
+                position: relative;
+
+                &:hover {
+                    color: $primary;
+                }
+
+                &:not(:last-child) {
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        right: -5px;
+                        top: 4px;
+                        height: 10px;
+                        width: 1px;
+
+                        background: #B4B4B4; //$gray-400
+                    }
+                }
+            }
+        }
+
+        .copyRight {
+            margin-bottom: 0;
+
+            @include media-breakpoint-up(md) {
+                margin-left: auto;
+            }
+        }
+    }
+}

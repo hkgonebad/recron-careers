@@ -1,0 +1,166 @@
+[
+  {
+    "id": 1,
+    "postedDate": "10 Jan, 2024",
+    "jobFunction": "Supervisor III (Operation Services)",
+    "jobTitle": "Supervisor III",
+    "jobLocation": "Kuala Lumpur",
+    "required": [
+      { "experience": "10-15 yrs" },
+      { "education": "Bachelor’s degree or equivalent" },
+      { "skills": ["SAP", "CRM"] }
+    ],
+    "url": "/job/supervisor-iii",
+    "jobDescription": [
+      "Contract and Material Receive and report to superior all contract and material requirement from customer in-term of work specification, with estimated cost and duration which will be used for analysis and decision making on the way-forward in providing the support.",
+      "Work Order (WO) & Purchase Request (PR) i. Facilitate WO/PR creation for Procurement, with ensuring agreed cost, defined scope, and recommended contract/purchasing method. ii.Track the progress of the WO and/or PR, identify and address any potential delays to expedite the delivery of the contract or purchase.",
+      "Outline Agreement (OA), Release Order (RO) & Approved-Contract-Value (ACV) i. Proactively retrieve and implement OA details after contract award to maintain precise ACV forecasts. ii. Track the execution and prepare RO on completed and on-going job for timely invoices payment. iii. Monitor and report ACV utilisation against forecast and report trending on expected target dateline and ACV expenditure.",
+      "Quarterly Contractors Performance Prepare quarterly contractors performance report against the agreed workscope’s timeline and incurred cost by collaborating with all stakeholders.",
+      "Improvement Initiative Initiate and participate in any improvement initiatives to ensure work process within support and administration section contribute to value creation in the overall business target."
+    ]
+  },
+  {
+    "id": 2,
+    "postedDate": "02 Jan, 2024",
+    "jobFunction": "Administrator (Accounts Receivable)",
+    "jobTitle": "Administrator",
+    "jobLocation": "Kuala Lumpur",
+    "required": [
+      { "experience": "10-15 yrs" },
+      { "education": "Bachelor’s degree in Accounting" },
+      { "skills": ["Excel", "QuickBooks"] }
+    ],
+    "url": "/job/administrator",
+    "jobDescription": [
+      "Description line 1",
+      "Description line 2"
+      
+    ]
+  },
+  {
+    "id": 3,
+    "postedDate": "28 Dec, 2023",
+    "jobFunction": "Executive (Project)",
+    "jobTitle": "Executive",
+    "jobLocation": "Kuala Lumpur",
+    "required": [
+      { "experience": "10-15 yrs" },
+      { "education": "Bachelor’s degree in Project Management" },
+      { "skills": ["Project Planning", "Project Execution"] }
+    ],
+    "url": "/job/executive-project",
+    "jobDescription": [
+      "Description line 1",
+      "Description line 2"
+      
+    ]
+  },
+  {
+    "id": 4,
+    "postedDate": "12 Dec, 2023",
+    "jobFunction": "Executive (Analyst Governance)",
+    "jobTitle": "Executive",
+    "jobLocation": "Kuala Lumpur",
+    "required": [
+      { "experience": "10-15 yrs" },
+      { "education": "Bachelor’s degree in Governance" },
+      { "skills": ["Risk Analysis", "Governance Framework"] }
+    ],
+    "url": "/job/executive-analyst-governance",
+    "jobDescription": [
+      "Description line 1",
+      "Description line 2"
+      
+    ]
+  },
+  {
+    "id": 5,
+    "postedDate": "8 Oct, 2023",
+    "jobFunction": "Senior Analyst (Talent Sourcing)",
+    "jobTitle": "Senior Analyst",
+    "jobLocation": "Kuala Lumpur",
+    "required": [
+      { "experience": "10-15 yrs" },
+      { "education": "Master’s degree in HR" },
+      { "skills": ["Talent Acquisition", "Sourcing Strategies"] }
+    ],
+    "url": "/job/senior-analyst-talent-sourcing",
+    "jobDescription": [
+      "Description line 1",
+      "Description line 2"
+      
+    ]
+  },
+  {
+    "id": 6,
+    "postedDate": "27 Aug, 2023",
+    "jobFunction": "Executive (Corporate Finance)",
+    "jobTitle": "Executive",
+    "jobLocation": "Kuala Lumpur",
+    "required": [
+      { "experience": "10-15 yrs" },
+      { "education": "Master’s degree in Finance" },
+      { "skills": ["Financial Analysis", "Budgeting"] }
+    ],
+    "url": "/job/executive-corporate-finance",
+    "jobDescription": [
+      "Description line 1",
+      "Description line 2"
+      
+    ]
+  },
+  {
+    "id": 7,
+    "postedDate": "3 Jun, 2023",
+    "jobFunction": "Graduate Hiring (Technical)",
+    "jobTitle": "Graduate Hiring",
+    "jobLocation": "Kuala Lumpur",
+    "required": [
+      { "experience": "0-1 yrs" },
+      { "education": "Bachelor’s degree in Computer Science" },
+      { "skills": ["Java", "Python"] }
+    ],
+    "url": "/job/graduate-hiring-technical",
+    "jobDescription": [
+      "Description line 1",
+      "Description line 2"
+      
+    ]
+  },
+  {
+    "id": 8,
+    "postedDate": "1 Jun, 2023",
+    "jobFunction": "Executive (Internal Audit)",
+    "jobTitle": "Executive",
+    "jobLocation": "Kuala Lumpur",
+    "required": [
+      { "experience": "10-15 yrs" },
+      { "education": "Bachelor’s degree in Internal Audit" },
+      { "skills": ["Audit Planning", "Risk Assessment"] }
+    ],
+    "url": "/job/executive-internal-audit",
+    "jobDescription": [
+      "Description line 1",
+      "Description line 2"
+      
+    ]
+  },
+  {
+    "id": 9,
+    "postedDate": "1 Jun, 2023",
+    "jobFunction": "Training Co-ordinator",
+    "jobTitle": "Training Co-ordinator",
+    "jobLocation": "Kuala Lumpur",
+    "required": [
+      { "experience": "10-15 yrs" },
+      { "education": "Master’s degree in Training Management" },
+      { "skills": ["Training Coordination", "Learning Management System"] }
+    ],
+    "url": "/job/training-coordinator",
+    "jobDescription": [
+      "Description line 1",
+      "Description line 2"
+      
+    ]
+  }
+]
