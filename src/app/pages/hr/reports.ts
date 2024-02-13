@@ -17,20 +17,20 @@ export interface ReportData {
 
   export const reportsData: ReportData[] = [
     { icon: 'remixFile2Fill', label: "Positions Posted", stat: 15 },
-    { icon: 'remixFile2Fill', label: "Positions Filled", stat: 13 },
-    { icon: 'remixFile2Fill', label: "Positions Withdrawn", stat: 2 },
-    { icon: 'remixFile2Fill', label: "Open Positions", stat: 0 },
-    { icon: 'remixFile2Fill', label: "Received Applications", stat: 25 },
-    { icon: 'remixFile2Fill', label: "Drop Box Applications", stat: 27 },
+    { icon: 'remixFileEditFill', label: "Positions Filled", stat: 13 },
+    { icon: 'remixFileTransferFill', label: "Positions Withdrawn", stat: 2 },
+    { icon: 'remixBriefcase4Fill', label: "Open Positions", stat: 0 },
+    { icon: 'remixFolderReceivedFill', label: "Received Applications", stat: 25 },
+    { icon: 'remixDropboxFill', label: "Drop Box Applications", stat: 27 },
   ];
   
   
   
   export const functionData: PositionFilledFunctionData[] = [
-    { icon: 'remixFile2Fill', function: 'IT', count: 15 },
-    { icon: 'remixFile2Fill', function: 'HR', count: 3 },
-    { icon: 'remixFile2Fill', function: 'Manufacturing', count: 1 },
-    { icon: 'remixFile2Fill', function: 'Operations', count: 6 },
+    { icon: 'remixTv2Fill', function: 'IT', count: 15 },
+    { icon: 'remixShakeHandsFill', function: 'HR', count: 3 },
+    { icon: 'remixBuildingFill', function: 'Manufacturing', count: 1 },
+    { icon: 'remixSettings3Line', function: 'Operations', count: 6 },
   ];
   
   

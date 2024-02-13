@@ -44,6 +44,7 @@
                 @for (fn of functionData; track $index) {
                 <div class="col-lg-6 col-xl-3">
                     <div class="reportStat">
+                        <ng-icon class="icon" name={{fn.icon}}></ng-icon>
                         <p>{{ fn.function }}</p>
                         <span>{{ fn.count }}</span>
                     </div>
