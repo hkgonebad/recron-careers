@@ -1,51 +1,110 @@
-import { Component, OnInit, ViewChildren } from '@angular/core';
-import { DataTableDirective } from 'angular-datatables/src/angular-datatables.directive';
-import { DataTablesModule } from 'angular-datatables/src/angular-datatables.module';
+import { DecimalPipe } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NgbTypeaheadModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { remixEyeFill } from '@ng-icons/remixicon';
+
+interface Job {
+  jobId?: string;
+  jobFunction: string;
+  jobLocation: string;
+  jobPost: string;
+  experience: string;
+  positions: number;
+  fulfilledPositions: number;
+  openPositions: number;
+  receivedApplications: number;
+  availableApplications: number;
+  action?: string;
+  status: string;
+}
+
+const JOBS: Job[] = [
+  {
+    jobId: '1J001',
+    jobFunction: 'IT',
+    jobLocation: 'Nilai',
+    jobPost: 'Analyst',
+    experience: '12 - 15',
+    positions: 5,
+    fulfilledPositions: 2,
+    openPositions: 5,
+    receivedApplications: 20,
+    availableApplications: 5,
+    action: '',
+    status: 'Open',
+  },
+  {
+    jobId: '1J002',
+    jobFunction: 'IT',
+    jobLocation: 'Nilai',
+    jobPost: 'Analyst',
+    experience: '12 - 15',
+    positions: 5,
+    fulfilledPositions: 2,
+    openPositions: 5,
+    receivedApplications: 20,
+    availableApplications: 5,
+    action: '',
+    status: 'Open',
+  },
+  {
+    jobId: '1J003',
+    jobFunction: 'IT',
+    jobLocation: 'Nilai',
+    jobPost: 'Analyst',
+    experience: '12 - 15',
+    positions: 5,
+    fulfilledPositions: 2,
+    openPositions: 5,
+    receivedApplications: 20,
+    availableApplications: 5,
+    action: '',
+    status: 'Open',
+  },
+  {
+    jobId: '1J004',
+    jobFunction: 'IT',
+    jobLocation: 'Nilai',
+    jobPost: 'Analyst',
+    experience: '12 - 15',
+    positions: 5,
+    fulfilledPositions: 2,
+    openPositions: 5,
+    receivedApplications: 20,
+    availableApplications: 5,
+    action: '',
+    status: 'Open',
+  },
+];
+
 
 @Component({
   selector: 'app-job-listing',
   standalone: true,
-  imports: [DataTablesModule, DataTableDirective ],
+  imports: [DecimalPipe, FormsModule, NgbTypeaheadModule, NgbPaginationModule, RouterModule, NgIconComponent],
   templateUrl: './job-listing.component.html',
   styleUrl: './job-listing.component.scss',
-  providers: []
+  viewProviders: [provideIcons({ remixEyeFill })],
 })
-export class JobListingComponent implements OnInit {
+export class JobListingComponent {
 
-  message = '';
-  dtOptions: DataTables.Settings = {};
+  page = 1;
+	pageSize = 4;
+	collectionSize = JOBS.length;
+	jobs!: Job[];
 
-  constructor() { }
+	constructor() {
+		this.refreshJobs();
+	}
 
-  someClickHandler(info: any): void {
-    this.message = info.id + ' - ' + info.firstName;
-  }
-
-  ngOnInit(): void {
-    this.dtOptions = {
-      ajax: 'data/data.json',
-      columns: [{
-        title: 'ID',
-        data: 'id'
-      }, {
-        title: 'First name',
-        data: 'firstName'
-      }, {
-        title: 'Last name',
-        data: 'lastName'
-      }],
-      rowCallback: (row: Node, data: any[] | Object, index: number) => {
-        const self = this;
-        // Unbind first in order to avoid any duplicate handler
-        // (see https://github.com/l-lin/angular-datatables/issues/87)
-        // Note: In newer jQuery v3 versions, `unbind` and `bind` are 
-        // deprecated in favor of `off` and `on`
-        $('td', row).off('click');
-        $('td', row).on('click', () => {
-          self.someClickHandler(data);
-        });
-        return row;
-      }
-    };
-  }
+	refreshJobs() {
+		this.jobs = JOBS.map((job, i) => ({ id: i + 1, ...job })).slice(
+			(this.page - 1) * this.pageSize,
+			(this.page - 1) * this.pageSize + this.pageSize,
+		);
+	}
 }

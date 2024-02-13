@@ -1,1 +1,65 @@
-<table datatable [dtOptions]="dtOptions" class="row-border hover"></table>
+<!--  -->
+<div class="table-responsive rounded-3">
+    <table class="table table-striped table-jobs">
+        <thead>
+            <tr>
+                <th scope="col">Job Id</th>
+                <th scope="col">Function</th>
+                <th scope="col">Location</th>
+                <th scope="col">Post</th>
+                <th scope="col">Experience</th>
+                <th scope="col">Position(s)</th>
+                <th scope="col">Fulfilled Positions</th>
+                <th scope="col">Open Positions</th>
+                <th scope="col">Received Applications</th>
+                <th scope="col">Available Applications</th>
+                <th scope="col">View</th>
+                <th scope="col">Action</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (job of jobs; track job.jobId) {
+            <tr>
+                <td scope="row">{{ job.jobId }}</td>
+                <td>{{ job.jobFunction }}</td>
+                <td>{{ job.jobLocation }}</td>
+                <td>{{ job.jobPost }}</td>
+                <td>{{ job.experience }}</td>
+                <td>{{ job.positions }}</td>
+                <td>{{ job.fulfilledPositions }}</td>
+                <td>{{ job.openPositions }}</td>
+                <td>{{ job.receivedApplications }}</td>
+                <td>{{ job.availableApplications }}</td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <a routerLink="/hr/view-job" class=""><ng-icon class="icon" name="remixEyeFill"></ng-icon></a>
+                    </div>
+                </td>
+                <td>
+                    <div class="actions">
+                        <select class="form-select form-select-sm" aria-label="Actions">
+                            <option value="close">Close</option>
+                            <option value="withdraw">Withdraw</option>
+                        </select>
+                    </div>
+                </td>
+                <td>{{ job.status }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div class="d-flex justify-content-between p-2">
+    <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshJobs()">
+        <option [ngValue]="2">2 items per page</option>
+        <option [ngValue]="4">4 items per page</option>
+        <option [ngValue]="6">6 items per page</option>
+    </select>
+
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+        (pageChange)="refreshJobs()">
+    </ngb-pagination>
+</div>
