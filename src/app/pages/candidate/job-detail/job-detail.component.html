@@ -1,0 +1,91 @@
+<section class="block jobs">
+    <div class="container">
+        <div class="pageHeader">
+            <h2>
+                <a routerLink="/"><ng-icon class="icon" name="remixArrowLeftLine"></ng-icon></a>
+                <b *ngIf="jobDetails">{{ jobDetails.jobTitle }}</b>
+                <b *ngElse>Go Back</b>
+            </h2>
+        </div>
+
+        <div class="jlCard jlCardDetail card" *ngIf="jobDetails">
+            <div class="card-body">
+                <div class="jlMeta">
+                    <span class="id">Job ID: J00{{jobDetails.id}}</span>
+                    <span class="posted">Date Posted: {{jobDetails.postedDate}}</span>
+                    <button class="btn btn-star" (click)="addToFavorites(jobDetails.id)"
+                        [class.favorited]="favorites.includes(jobDetails.id)">
+                        <ng-icon class="icon" name="remixStarFill"></ng-icon>
+                    </button>
+                    <button class="btn btn-dark">Apply Now</button>
+                </div>
+
+                <div class="jlInfo">
+                    <div class="jlBlock">
+                        <b>Function</b>
+                        <span>{{jobDetails.jobFunction}}</span>
+                    </div>
+                    <div class="jlBlock">
+                        <b>Location</b>
+                        <span>{{jobDetails.jobLocation}}</span>
+                    </div>
+                    <div class="jlBlock">
+                        <b>Post</b>
+                        <span>{{jobDetails.jobPost}}</span>
+                    </div>
+                    <div class="jlBlock">
+                        <b>Experience</b>
+                        <span>
+                            <ng-container *ngFor="let reqItem of jobDetails.required;">
+                                <ng-container *ngIf="isJobExperience(reqItem)">
+                                    {{reqItem.experience}}
+                                </ng-container>
+                            </ng-container>
+                        </span>
+
+                    </div>
+                    <div class="jlBlock">
+                        <b>Positions</b>
+                        <span>{{jobDetails.jobPositions}}</span>
+                    </div>
+                    <div class="jlBlock">
+                        <b>Education</b>
+                        <span>
+                            <ng-container *ngFor="let reqItem of jobDetails.required;">
+                                <ng-container *ngIf="isJobEducation(reqItem)">
+                                    {{reqItem.education}}
+                                </ng-container>
+                            </ng-container>
+                        </span>
+                    </div>
+                    <div class="jlBlock">
+                        <b>Skills & Competencies</b>
+                        <span>
+                            <ng-container *ngFor="let reqItem of jobDetails.required;">
+                                <ng-container *ngIf="isJobSkills(reqItem)">
+                                    {{reqItem.skills.join(', ')}}
+                                </ng-container>
+                            </ng-container>
+                        </span>
+                    </div>
+                </div>
+
+                <div *ngIf="jobDetails.jobDescription && jobDetails.jobDescription.length > 0" class="jlDescription">
+                    <h4>Job Description</h4>
+                    <ol class="unstyled">
+                        <li *ngFor="let descriptionLine of jobDetails.jobDescription">{{ descriptionLine }}</li>
+                    </ol>
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-dark">Apply Now</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--  -->
+<ng-template #favoriteJobs let-message="message">
+    {{ message }}
+</ng-template>

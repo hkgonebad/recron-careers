@@ -1,0 +1,31 @@
+@import 'layout/typo';
+
+// @import 'layout/variables';
+// Default variable overrides
+$primary: #43B749;
+$enable-shadows: true;
+$prefix: "hk-";
+$link-decoration: none;
+
+@import 'bootstrap/bootstrap';
+// @import 'plugins/fontawesome/fontawesome';
+// @import 'plugins/lineawesome/line-awesome';
+// @import 'plugins/fontawesome/brands';
+// @import 'plugins/fontawesome/regular';
+// @import 'plugins/fontawesome/solid';
+// @import 'plugins/prefixer';
+// @import 'plugins/slick';
+// @import 'plugins/slick-theme';
+// @import 'plugins/aos';
+// @import 'plugins/animate';
+
+@import 'layout/default';
+
+// @import 'layout/register';
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/jobs';
+@import 'layout/hr-jobs';
+
+@import 'layout/page';
