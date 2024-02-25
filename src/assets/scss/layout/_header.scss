@@ -126,50 +126,52 @@
     }
 }
 
-.nav-link {
-    position: relative;
-    font-size: 13px;
-    font-weight: 900;
-    padding: .75rem 1rem;
+.navbar-nav {
+    .nav-link {
+        position: relative;
+        font-size: 13px;
+        font-weight: 900;
+        padding: .75rem 1rem;
 
-    @include media-breakpoint-up(md) {
-        &:not(:last-child) {
-            &:before {
-                content: '';
-                position: absolute;
-                right: -8px;
-                top: 15px;
-                height: 15px;
-                width: 1px;
-                background: #E0E0E0;
+        @include media-breakpoint-up(md) {
+            &:not(:last-child) {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    right: -8px;
+                    top: 15px;
+                    height: 15px;
+                    width: 1px;
+                    background: #E0E0E0;
+                }
             }
         }
-    }
-
-    &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -15px;
-        height: 2px;
-        border-radius: 2px;
-        opacity: 0;
-        visibility: hidden;
-        background: var(--hk-primary);
-        transition: all ease-in-out 250ms;
-    }
-
-    &:hover,
-    &:focus,
-    &.active {
-        color: var(--hk-primary) !important;
 
         &:after {
-            bottom: -20px;
-            opacity: 1;
-            visibility: visible;
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -15px;
+            height: 2px;
+            border-radius: 2px;
+            opacity: 0;
+            visibility: hidden;
             background: var(--hk-primary);
+            transition: all ease-in-out 250ms;
+        }
+
+        &:hover,
+        &:focus,
+        &.active {
+            color: var(--hk-primary) !important;
+
+            &:after {
+                bottom: -20px;
+                opacity: 1;
+                visibility: visible;
+                background: var(--hk-primary);
+            }
         }
     }
 }
